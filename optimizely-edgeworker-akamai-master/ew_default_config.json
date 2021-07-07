@@ -1,0 +1,184 @@
+{
+    "version": 1,
+    "kv_namespace": "default",
+    "kv_group": "optly_ew_config",
+    "kv_item_config_file": "config_file",
+    "kv_item_data_file": "data_file",
+    "experimentFlagRules": [
+        {
+            "flag_key": "edge_worker_development",
+            "evaluate": "query_param",
+            "evaluation_type": "exists",
+            "param_name": "override_user_id",
+            "value": "",
+            "behavior": "redirect",
+            "behavior_action": "replace_path",
+            "behavior_value": "/product/categories/?leather_shoes=italian"
+        },
+        {
+            "flag_key": "edge_worker_query_param_value",
+            "evaluate": "query_param",
+            "evaluation_type": "has_value",
+            "param_name": "override_user_id",
+            "value": "true",
+            "behavior": "redirect",
+            "behavior_action": "replace_path",
+            "behavior_value": "/product/categories/?leather_shoes=italian"
+        },
+        {
+            "flag_key": "edge_worker_development_version_2",
+            "evaluate": "path",
+            "evaluation_type": "match",
+            "value": "/products/*",
+            "behavior": "redirect",
+            "behavior_action": "append_query_param",
+            "behavior_value": "id=PID-0110013"
+        },
+        {
+            "flag_key": "signup_affiliates",
+            "evaluate": "path",
+            "evaluation_type": "regex",
+            "value": "agent",
+            "behavior": "redirect",
+            "behavior_action": "replace_url",
+            "behavior_value": "https://www.optimizely.com/signup"
+        },
+        {
+            "flag_key": "product_categories_1",
+            "evaluate": "cookie",
+            "evaluation_type": "substring",
+            "cookie_name": "testing_cookie",
+            "value": "/shoes/",
+            "behavior": "redirect",
+            "behavior_action": "append_query_param",
+            "behavior_value": "id=PID-0110013"
+        },
+        {
+            "flag_key": "cookie_exists",
+            "evaluate": "cookie",
+            "evaluation_type": "exists",
+            "cookie_name": "edgeworker_cookie",
+            "behavior": "redirect",
+            "behavior_action": "replace_path",
+            "behavior_value": "/homepage/"
+        }
+    ],
+    "user_cookie_expiration": 90,
+    "decisions_cookie_expiration": 15,
+    "datafileSource": "embedded",
+    "accountId": "15781310249",
+    "optlyEventsEndpoint": "https://development.katespade.com/v1/events",
+    "autoUpdateActiveExperiments": true,
+    "activeExperiments": "live_chat",
+    "sdkKey": "MaC42yg3cytJaTyG8SdQr",
+    "datafileURLTemplate": "https://cdn.optimizely.com/datafiles/",
+    "datafile": {
+        "version": "4",
+        "rollouts": [
+            {
+                "experiments": [
+                    {
+                        "status": "Running",
+                        "audienceConditions": [],
+                        "audienceIds": [],
+                        "variations": [
+                            {
+                                "variables": [],
+                                "id": "7823",
+                                "key": "off",
+                                "featureEnabled": false
+                            }
+                        ],
+                        "forcedVariations": {},
+                        "key": "default-rollout-2970-20395636387",
+                        "layerId": "default-layer-rollout-2970-20395636387",
+                        "trafficAllocation": [
+                            {
+                                "entityId": "7823",
+                                "endOfRange": 10000
+                            }
+                        ],
+                        "id": "default-rollout-2970-20395636387"
+                    }
+                ],
+                "id": "rollout-2970-20395636387"
+            }
+        ],
+        "typedAudiences": [],
+        "anonymizeIP": false,
+        "projectId": "20373885503",
+        "variables": [],
+        "featureFlags": [
+            {
+                "experimentIds": [
+                    "9300000007360"
+                ],
+                "rolloutId": "rollout-2970-20395636387",
+                "variables": [],
+                "id": "2970",
+                "key": "live_chat"
+            }
+        ],
+        "experiments": [
+            {
+                "status": "Running",
+                "audienceConditions": [],
+                "audienceIds": [],
+                "variations": [
+                    {
+                        "variables": [],
+                        "id": "7823",
+                        "key": "off",
+                        "featureEnabled": false
+                    },
+                    {
+                        "variables": [],
+                        "id": "7825",
+                        "key": "variation1",
+                        "featureEnabled": true
+                    }
+                ],
+                "forcedVariations": {},
+                "key": "experiment",
+                "layerId": "9300000007360",
+                "trafficAllocation": [
+                    {
+                        "entityId": "7823",
+                        "endOfRange": 3100
+                    },
+                    {
+                        "entityId": "7825",
+                        "endOfRange": 6200
+                    },
+                    {
+                        "entityId": "7823",
+                        "endOfRange": 8100
+                    },
+                    {
+                        "entityId": "7825",
+                        "endOfRange": 10000
+                    }
+                ],
+                "id": "9300000007360"
+            }
+        ],
+        "audiences": [
+            {
+                "conditions": "[\"or\", {\"match\": \"exact\", \"name\": \"$opt_dummy_attribute\", \"type\": \"custom_attribute\", \"value\": \"$opt_dummy_value\"}]",
+                "id": "$opt_dummy_audience",
+                "name": "Optimizely-Generated Audience for Backwards Compatibility"
+            }
+        ],
+        "groups": [],
+        "attributes": [
+            {
+                "id": "20401433524",
+                "key": "Test_attr"
+            }
+        ],
+        "botFiltering": false,
+        "accountId": "15781310249",
+        "events": [],
+        "revision": "26"
+    }
+}
